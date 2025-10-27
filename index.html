@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Un libro para ti</title>
+  <audio src="https://youtu.be/wLYk_qRjP6c?si=aEj6bk1-6NH0houu" autoplay loop></audio>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stage">
+    <div style="text-align:center; font-size:0.9rem; color:#444">
+      LIBRO
+    </div>
+
+    <div class="book" id="book"></div>
+
+    <div class="controls">
+      <button class="btn" id="prev">Anterior</button>
+      <button class="btn" id="next">Siguiente</button>
+    </div>
+
+    <div style="text-align:center; margin-top:8px; color:#666; font-size:0.9rem">
+      Hecho con cariño por <strong>Max</strong> 💌
+    </div>
+  </div>
+
+  <script>
+    const pages = [
+      [
+        `
+        <section class="page left cover">
+          <h1>Para ti Estrella</h1>
+          <p class="meta">Un libro con nuestra poquita historia </p>
+          <p style="margin-top:18px">
+            Te invito a que lo leeas, te lo hice con todo el 
+            cariño que te tengo.
+          </p>
+          <p style="position:absolute; bottom:18px; left:32px; font-size:0.85rem; color:#777">
+            Con cariño, Max
+          </p>
+        </section>
+        `,
+        `
+        <section class="page right" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center; max-width:80%; margin:0 auto;">
+            <div style="display:inline-block; padding:10px; background:#fff; border-radius:12px; border:4px solid #f2f2f2; box-shadow:0 8px 20px rgba(0,0,0,0.12);">
+              <img src="FOTO.png" alt="portada" style="display:block; max-width:100%; height:auto; max-height:420px; border-radius:8px; object-fit:contain;" />
+            </div>
+        </section>
+        `
+      ],
+      [
+        `
+        <section class="page left">
+          <h2>Nuestra historia</h2>
+          <p class="large">
+            
+          </p>
+          <p class="quote">
+           Nuestra historia recien comienza, me siento super contento de haber consido 
+            contigo, siento que dios me ama al traerme a alguien como tu a mi vida,
+            quien diria que un simple voto me acercara a ti, doy gracias por eso al
+            universo. En este momento que estoy haciendo esta cosa 
+            rara como tu lo dices es 26/10/2025, y en este momento te quiero
+            bastante me siento tan agusto contigo disfruto de tu compañia y eso me pone super contento
+            .
+          </p> <p>
+            Sin nada mas que decirte espero que este solo sea el comienzo de una 
+            maravillosa historia a tu lado.
+            Espero que este libro te guste y que lo leas con mucho cariño
+            como yo lo hice al escribirlo.
+          </p>
+        </section>
+        `,
+        `
+        <section class="page right">
+          <h2>Por qué me gustas</h2>
+          <p>
+            Ya te eh dicho varias veces el por que me gustas, pero aqui te lo
+            repito de nuevo sin ningun problema.</P> <p> Estrella me gustas por que te me haces
+            un mujer muy linda en todos lo aspectos, tienes un hermoso cabello, unos ojos
+            hermosisimos, una linda sonrisa que me pone contento de solo verla
+            me gusta tu cuerpo y esto te lo digo con todo el respeto que te mereces. No 
+            tengo el derecho de hablar de tu cuerpo pero me tomo el atrevimiento de hacertelo 
+            saber.
+          </p>
+          <p>
+            Me siento feliz al momento de hablar y estar contigo, contigo
+            me siento agusto me a encantado el poco contacto fisico que hemos tenido
+            me gustaria que se repitiera siempre, te quiero mucho y siemplemente
+            no puedo explicar el por que jeje eres maravillosa.
+          </p>
+        </section>
+        `
+      ],
+      [
+        `
+        <section class="page left">
+          <h2>Momentos favoritos</h2>
+          <ul>
+            <li>Mis momento favorito es cuando estoy contigo</li>
+            <li>Cuando nos damos abrazos, han sido pocos como 3 o 4 pero me gustan
+              muchisimo</li>
+            <li>Me gusta mucho platicar contigo</li>
+            <li>Aun no tenemos tanto momento juntos, pero espero que 
+              si los tengamos.</li>
+          </ul>
+        </section>
+        `,
+        `
+        <section class="page right">
+          <h2>Promesas</h2>
+          <p class="large">
+            Prometo cuidarte, respertarte y quererte mucho y con el pasar del
+            tiempo amarte y demostrarte lo mucho que significas para mi.
+            </p>
+          <p>
+            Prometo mejorar dia con dia para ser el hombre que te mereces eh 
+            intentar hacerte feliz en todo momento.</p>
+          <p>
+            prometo estar a tu lado en las buenas y en las malas, apoyarte en todo
+            momento en las metas que tengas y etc sabes o no sabes.</p>
+          <p>
+            Prometo tambien intentar decirte cosas bonitas y hacerte sentir especial 
+            en cada foto que me mandes o subas, ya que aun no lo se hacer jeje.
+          </p>
+        </section>
+        `
+      ],
+      [
+        `
+        <section class="page left">
+          <h2>Carta</h2>
+          <p>Querida Estrella ,</p>
+          <p class="large">
+            Quiero creer que esta es la primera carta que resibes en una pagina
+            web, y espero que te guste mucho y tambien espero poder darte mas 
+            en otros momentos hechas a mano por mi.</p><p>Querida Estrella
+              hoy te escribo esta carta para expresarte lo mucho que significas para mi
+              y lo feliz que me haces cada dia que pasa. se que llevamos 
+              poco tiempo hablando pero ah sido suficiente para que te ganaras 
+              mi carino y mi respeto. Eres mi persona favorita mi sol mi estrella, mi todo 
+              la razon por la que me eh levantado sonriente estos ultimos dias 
+
+          </p>
+        </section>
+        `,
+        `
+        <section class="page right">
+          <h2>Firma</h2>
+          <p style="margin-top:40px; font-weight:600; font-size:1.1rem">Con todo mi cariño,</p>
+          <p style="margin-top:18px; font-family: 'Courier New', monospace"> Maxxxx</p><p>pdst: no tengo casi
+            fotos tuyas checa eso</p><p> ah y a lo mejor no es la mejor
+              pagina web pero se hizo el intento lol</p>
+        </section>
+        `
+      ]
+    ];
+
+    let current = 0;
+    const book = document.getElementById('book');
+
+    function renderSpread(i) {
+      const spread = pages[i];
+      book.innerHTML = `
+        <div class="book-inner spread">
+          ${spread[0]}
+          ${spread[1]}
+        </div>
+      `;
+      const left = book.querySelector('.page.left');
+      const right = book.querySelector('.page.right');
+      left && left.addEventListener('click', ()=>prev());
+      right && right.addEventListener('click', ()=>next());
+    }
+
+    function next() {
+      if (current < pages.length - 1) current++;
+      else current = 0;
+      renderSpread(current);
+    }
+    function prev() {
+      if (current > 0) current--;
+      else current = pages.length - 1;
+      renderSpread(current);
+    }
+
+    document.getElementById('next').addEventListener('click', next);
+    document.getElementById('prev').addEventListener('click', prev);
+    renderSpread(current);
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'ArrowRight') next();
+      if(e.key === 'ArrowLeft') prev();
+    });
+  </script>
+</body>
+</html>
+
